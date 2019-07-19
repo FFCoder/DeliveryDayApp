@@ -16,7 +16,7 @@ export class ContactsService {
     this.contacts = this.contactCollection.valueChanges();
     this.currentContact = {
       name: '',
-      phoneNumber: ''
+      phoneNumber: '',
     };
   }
 
@@ -25,5 +25,14 @@ export class ContactsService {
   }
   public addContact(contact: Contact) {
     this.contactCollection.add(contact);
+  }
+  public deleteContact(contact: Contact){
+    this.contactCollection.ref.where('name', '==', contact.name)
+      .where('phoneNumber', '==', contact.phoneNumber)
+      .get()
+      .then((snapshot) => {
+        const doc = snapshot.docs[0];
+        doc.ref.delete();
+      });
   }
 }

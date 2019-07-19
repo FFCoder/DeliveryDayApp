@@ -7,10 +7,14 @@ import { NgbModalRef, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 
 
+
 @Component({
   selector: 'app-contact-list',
   templateUrl: './contact-list.component.html',
-  styleUrls: ['./contact-list.component.css']
+  styleUrls: ['./contact-list.component.css'],
+  animations: [
+
+  ],
 })
 export class ContactListComponent implements OnInit {
   service: ContactsService;
@@ -18,6 +22,8 @@ export class ContactListComponent implements OnInit {
   contact: Contact;
   modal: NgbModalRef;
   modalService: NgbModal;
+  math = Math;
+
 
   constructor(Cservice: ContactsService, modalService: NgbModal) {
     this.service = Cservice;
@@ -27,6 +33,13 @@ export class ContactListComponent implements OnInit {
     };
     this.modalService = modalService;
   }
+
+  clearContactInfo(){
+    this.contact.name = '';
+    this.contact.phoneNumber = '';
+  }
+
+
   getContacts(){
     this.contacts = this.service.getContacts();
   }
@@ -46,6 +59,22 @@ export class ContactListComponent implements OnInit {
     this.modal.close();
     this.contact.name = '';
     this.contact.phoneNumber = '';
+  }
+  editContact(contact: Contact, modalRef: NgbModalRef) {
+    this.contact = contact;
+    this.modal = modalRef;
+    this.open(modalRef);
+
+  }
+  deleteContact(contact: Contact) {
+    this.service.deleteContact(contact);
+    this.clearContactInfo();
+    this.modal.close();
+
+  }
+  updateContact(contact: Contact) {
+
+
   }
 
 
