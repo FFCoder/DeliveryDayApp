@@ -1,0 +1,59 @@
+<div class="container">
+  <div class="menuButtons row">
+
+        <button type="button" class="btn btn-info btn-lg"
+          (click)="openDeliveryBroadcast()">
+            Send a Delivery Message
+        </button>
+        <button type="button" class="btn btn-success btn-lg"
+          (click)="open(confirmHospital)">
+            Going to The Hospital
+        </button>
+        <button type="button" class="btn btn-danger  btn-lg"
+          (click)="open(confirmDelivery)">
+            Delivery Finished
+        </button>
+  </div>
+  <div class="menuButtons row">
+      <button type="button" class="btn btn-secondary btn-lg contactButton"
+        (click)="openContacts()">
+          Open Contacts
+      </button>
+  </div>
+</div>
+
+<ng-template #confirmHospital let-modal>
+    <div class="modal-header">
+      <h4>Confirm Action</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+      <p>Please Confirm That You Are On The Way To The Hospital.</p>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark btn-success" (click)="modalConfirm()">Yes</button>
+        <button type="button" class="btn btn-outline-dark btn-danger" (click)="modal.close()">No</button>
+      </div>
+
+  </ng-template>
+
+  <ng-template #confirmDelivery let-modal>
+      <div class="modal-header">
+        <h4>Confirm Action</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+      </div>
+      <div class="modal-body">
+        <p>Please Confirm That The Baby Has Been Delivered</p>
+
+      </div>
+      <div class="modal-footer">
+          <button type="button" class="btn btn-outline-dark btn-success" (click)="BabymodalConfirm()">Yes</button>
+          <button type="button" class="btn btn-outline-dark btn-danger" (click)="modal.close()">No</button>
+        </div>
+
+    </ng-template>

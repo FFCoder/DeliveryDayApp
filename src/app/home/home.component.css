@@ -1,0 +1,13 @@
+
+
+.menuButtons {
+  display: flex;
+  justify-content: space-evenly;
+}
+.menuButtons .btn {
+  width: 40%;
+  margin: 2%;
+}
+.contactButton {
+  width: 70% !important;
+}

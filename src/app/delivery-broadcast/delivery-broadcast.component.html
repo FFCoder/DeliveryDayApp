@@ -1,0 +1,45 @@
+<div class="container">
+  <h2>Delivery Messages</h2>
+  <div class="btn-container">
+    <button class="btn btn-primary" (click)="open(content)">Send a New Message</button>
+    <button class="btn btn-primary" (click)="deleteMessages()">Delete Messages</button>
+  </div>
+  <table class="table table-hover">
+    <thead class=thead-dark>
+      <tr>
+        <th>Message ID</th>
+        <th>Message</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let message of messages | async">
+          <td>{{message.id}}</td>
+        <td>{{message.message}}</td>
+
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4>New Delivery Message</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+  </div>
+  <div class="modal-body">
+    <form #messageForm="ngForm">
+      <div class="form-group">
+        <label for="Message">Message</label>
+        <input type="text" class="form-control" id="Message" required
+        [(ngModel)]="message.message" name="message">
+      </div>
+    </form>
+
+  </div>
+  <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="close()">Send</button>
+    </div>
+
+</ng-template>
