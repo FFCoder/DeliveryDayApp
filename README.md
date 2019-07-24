@@ -1,6 +1,6 @@
 # DeliveryApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.1.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.1. Backend Hosting was handled by [Google Firebase](https://firebase.google.com/)
 
 ## About
 This is a project I created to allow for more efficient communication with our friends and family when we went to the hospital to deliver our seconds daughter. The app worked pretty well and we were happy with it. Design is still something I struggle with and am continously working on so it's not the best designed app and I used a lot of pre-made components but I was trying to push features more so than design. I created the application with Angular because I wanted to get a good understanding of how Angular works while at the same time, I knew Angular would allow me to quickly create the app. I obviously had a set deadline of when the app had to be completed and that deadline was not flexible. Even worse so, we both decided to allow for my wife to induce 4 days earlier, so that meant I had to rush more to get it completed. 
